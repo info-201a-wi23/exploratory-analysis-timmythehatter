@@ -5,7 +5,7 @@ library("stringr")
 library("tidyverse")
 
 # Load Data Sets
-taxes <- read.csv("C:/Users/Tim/Documents/Info201code/final-project-proposal-timmythehatter/STC_Historical_2021_cleaned.csv")
+taxes <- read.csv("https://raw.githubusercontent.com/info-201a-wi23/exploratory-analysis-timmythehatter/main/STC_Historical_2021_cleaned.csv")
 energy <-read.csv("https://www.eia.gov/state/seds/sep_use/total/csv/use_all_phy.csv")
 
 # Remove X's from years in energy dataframe
