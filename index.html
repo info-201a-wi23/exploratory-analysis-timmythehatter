@@ -497,10 +497,51 @@ different communities.</p>
 </div>
 <div id="summary-information" class="section level3">
 <h3>Summary Information</h3>
+<p>Our dataset has <code>num_years_energy_data</code> years of energy
+data and <code>num_years_tax_data</code> years of tax data, so there is
+some overlap in our timeframes from 1960 until present day. We also
+found that the maximum taxes collected in this time fram was
+<code>max_tax</code> dollars. Another thing we found is that there are
+<code>num_categories_energy</code> categories of energy consumption and
+<code>num_categories_taxes</code> categories of taxes collected, so
+there are many different types of comparisons we can make between the
+two.</p>
 </div>
 <div id="table" class="section level3">
 <h3>Table</h3>
-<p>Include a table of aggregate information</p>
+<pre class="r"><code># Load Data Sets
+taxes &lt;- read.csv(&quot;https://raw.githubusercontent.com/info-201a-wi23/exploratory-analysis-timmythehatter/main/STC_Historical_2021_cleaned.csv&quot;)
+energy &lt;- read.csv(&quot;https://www.eia.gov/state/seds/sep_use/total/csv/use_all_phy.csv&quot;)
+
+# Remove X&#39;s from years in energy dataframe
+colnames(energy) &lt;- sub(&quot;X&quot;, &quot;&quot;, colnames(energy))
+
+# Remove all commas from taxes
+taxes &lt;- taxes%&gt;%mutate(C105 = str_replace_all(taxes$C105, &quot;,&quot;, &quot;&quot;))
+taxes &lt;- taxes%&gt;%mutate(T15 = str_replace_all(taxes$T15, &quot;,&quot;, &quot;&quot;))
+
+# Remove first row of taxes
+taxes_removed &lt;- taxes%&gt;%slice(-1)
+
+# Find the mean per year of energy used
+energy_per_year &lt;- apply(energy[, 4:length(energy)], 2, mean, na.rm = TRUE)
+energy_per_year &lt;- data.frame(energy_per_year)
+years &lt;- data.frame(Year = as.numeric(row.names(energy_per_year)))
+energy_per_year &lt;- cbind(energy_per_year, years)
+
+# Find the taxes per year
+taxes_per_year &lt;- taxes_removed%&gt;%group_by(Year)%&gt;%summarize(average_taxes = mean(as.double(C105), na.rm = TRUE))
+
+# Public Utility Tax per year
+utility_per_year &lt;- taxes_removed%&gt;%group_by(Year)%&gt;%summarize(average_taxes = mean(as.double(T15), na.rm = TRUE))
+
+# Ratio Per Year of Taxes to Energy
+tax_v_energy &lt;- left_join(energy_per_year, taxes_per_year, by = &quot;Year&quot;)
+tax_v_enery_ratio &lt;- tax_v_energy%&gt;%mutate(ratio = average_taxes / energy_per_year)
+
+# Utility Tax v energy
+utax_v_energy &lt;- left_join(energy_per_year, utility_per_year, by = &quot;Year&quot;)
+utax_v_enery_ratio &lt;- utax_v_energy%&gt;%mutate(ratio = average_taxes / energy_per_year)</code></pre>
 <p>Describe why you included the table and what information it
 reveals</p>
 </div>
