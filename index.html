@@ -523,8 +523,8 @@ taxes &lt;- taxes%&gt;%mutate(T15 = str_replace_all(taxes$T15, &quot;,&quot;, &q
 # Remove first row of taxes
 taxes_removed &lt;- taxes%&gt;%slice(-1)
 
-# Find the mean per year of energy used
-energy_per_year &lt;- apply(energy[, 4:length(energy)], 2, mean, na.rm = TRUE)
+# Find the total per year of energy used
+energy_per_year &lt;- apply(energy[, 4:length(energy)], 2, sum, na.rm = TRUE)
 energy_per_year &lt;- data.frame(energy_per_year)
 years &lt;- data.frame(Year = as.numeric(row.names(energy_per_year)))
 energy_per_year &lt;- cbind(energy_per_year, years)
@@ -532,18 +532,16 @@ energy_per_year &lt;- cbind(energy_per_year, years)
 # Find the taxes per year
 taxes_per_year &lt;- taxes_removed%&gt;%group_by(Year)%&gt;%summarize(average_taxes = mean(as.double(C105), na.rm = TRUE))
 
-# Public Utility Tax per year
-utility_per_year &lt;- taxes_removed%&gt;%group_by(Year)%&gt;%summarize(average_taxes = mean(as.double(T15), na.rm = TRUE))
-
 # Ratio Per Year of Taxes to Energy
 tax_v_energy &lt;- left_join(energy_per_year, taxes_per_year, by = &quot;Year&quot;)
-tax_v_enery_ratio &lt;- tax_v_energy%&gt;%mutate(ratio = average_taxes / energy_per_year)
-
-# Utility Tax v energy
-utax_v_energy &lt;- left_join(energy_per_year, utility_per_year, by = &quot;Year&quot;)
-utax_v_enery_ratio &lt;- utax_v_energy%&gt;%mutate(ratio = average_taxes / energy_per_year)</code></pre>
-<p>Describe why you included the table and what information it
-reveals</p>
+tax_v_enery_ratio &lt;- tax_v_energy%&gt;%mutate(ratio = average_taxes / energy_per_year)</code></pre>
+<p>This table comes in two parts, the first is just the amount of taxes
+vs the amount of energy consumption per year. This is a good visual of
+exactly how the two are related, but sometimes its hard to see an exact
+relation between numbers of this size. Because of that difficulty, we
+included the second table as well because the ratio can be an easier
+digest number and a more direct relation between the larger sets of
+data.</p>
 </div>
 <div id="chart-1" class="section level3">
 <h3>Chart 1</h3>

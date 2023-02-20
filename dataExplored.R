@@ -6,7 +6,7 @@ library("tidyverse")
 
 # Load Data Sets
 taxes <- read.csv("https://raw.githubusercontent.com/info-201a-wi23/exploratory-analysis-timmythehatter/main/STC_Historical_2021_cleaned.csv")
-energy <-read.csv("https://www.eia.gov/state/seds/sep_use/total/csv/use_all_phy.csv")
+energy <- read.csv("https://www.eia.gov/state/seds/sep_use/total/csv/use_all_phy.csv")
 
 # Remove X's from years in energy dataframe
 colnames(energy) <- sub("X", "", colnames(energy))
@@ -18,8 +18,8 @@ taxes <- taxes%>%mutate(T15 = str_replace_all(taxes$T15, ",", ""))
 # Remove first row of taxes
 taxes_removed <- taxes%>%slice(-1)
 
-# Find the mean per year of energy used
-energy_per_year <- apply(energy[, 4:length(energy)], 2, mean, na.rm = TRUE)
+# Find the total per year of energy used
+energy_per_year <- apply(energy[, 4:length(energy)], 2, sum, na.rm = TRUE)
 energy_per_year <- data.frame(energy_per_year)
 years <- data.frame(Year = as.numeric(row.names(energy_per_year)))
 energy_per_year <- cbind(energy_per_year, years)
