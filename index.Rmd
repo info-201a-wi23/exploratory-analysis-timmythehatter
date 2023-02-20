@@ -5,11 +5,11 @@ output: html_document
 
 ## Project title
 
-Give your project a concise, interesting title that summarizes the entirety of your project
+Correlation of Taxes and Energy Consumption
 
 ### Authors
 
-Names of your team members
+Amy Balala, Aryan Auti, Timothy Dillon, Shuai LaVielle
 
 ### Date
 
@@ -17,38 +17,46 @@ Winter 2022
 
 ### Abstract
 
-No more than three sentences that summarize your project. Focus on the very most important aspects. For example: (1) "Our main question is .... This question is important because .... To address the question, we will ...." (2) "We are concerned with ..., because .... To address this concern, we plan to ...." (3) "Consider that .... This is important because .... Accordingly, we plan to ...."
+We will be analyzing certain aspects of the U.S. economy including taxes and energy consumption and how/ if they are correlated. There is ample data to analyze data from year to year to determine if certain patterns happen consistently or only in certain timeframes. Furthermore, each of these categories have numerous subcategories that can be explored like utility tax etc.
 
 ### Keywords
 
-3-5 keywords that summarize your project.
-(e.g., "Keywords: human physiology; bicycle exercise; Gen Z; times-series data")
+Taxes, Energy Consumption, Income, Annual Rates
 
 ### Introduction  
 
-Briefly introduce your project.  Include 3-5 research questions. What motivates the questions? Why are they important? (at least 200 words)
+The economy is ever evolving in the United States, but one might wonder if a pattern has persisted throughout our recent history. We plan to tackle that curiosity by analyzing several questions and introducing data from several related topics. 1) The first question we have is what kind of pattern there is with taxes from year to year. The results from exploring the question seem like they might be intuitive and we predict there will be a steady rise in taxes from year to year, but if not then more questions will arise (see 1942). 2) From there, we will analyze a simimlar question when it comes to energy consumption. We beleive it will follow the same pattern with a steady increase, but it will also be interesting to see what sectors use the most energy and if that has changed over time. 3) Another intriguing concept that could be gleaned from the data is how closely related the trend in taxes and energy consumption is. We could analyze this using a one to one ratio of megaWatts to dollars, and check the numbers from 1960 until present day. If the pattern isn't linear it could raise questions like: are we using less energy comparatively? Are we more energy efficient? Have taxes been raised or lowered? and many more.
 
 ### Related Work  
 
-Describe your topic and related work in this space. You must include 3 citations to related work (URLs to similar work, high quality articles from the popular press, research papers, etc. ) Please use a standard citation style of your choice. (at least 200 words)
+There are many studies done related to taxes, income, energy consumption, and the economy. One that closely analyzes the relationship between taxes and income is titled *Measuring Taxes on Income from Capital* by Michael P. Devereux. Specifically, Devereux dives into the exact proportionality of income and taxes and how a balance is achieved. Another article, *Environmental taxes, energy consumption, and environmental quality: Theoretical survey with policy implications* by Umer Shazad takes a look at how taxes can actually be used to reduce energy consumption and that they can be a benefit to the environment. It can be seen that many of these topics are very closely correlated with one another. Taxes have a relation to both income and energy consumption, but another article *Effects of financial developments and income on energy consumption* shows that income and energy and energy are related as well. The article states that in developing countries as their production and financial development increases, so does their energy consumption. With these articles and many more, the correlation between these economic topics is clear, but many of the articles only focus on a broad overview and don’t introduce much hard data. With the data we have we can connect all of those points.
+
+
+* [Measuring Taxes on Income from Capital](https://books.google.com/books?hl=en&lr=&id=G4ZBDba7iEcC&oi=fnd&pg=PA35&dq=taxes+and+income&ots=fnv3CXCGIy&sig=5oYmm32P7CqGE2iKKQ4Y4BoHRVk#v=onepage&q=taxes%20and%20income&f=false)
+* [Environmental taxes, energy consumption, and environmental quality: Theoretical survey with policy implications](https://link.springer.com/article/10.1007/s11356-020-08349-4)
+* [Effects of financial developments and income on energy consumption](https://www.sciencedirect.com/science/article/pii/S1059056014001130)
+
 
 ### The Dataset
 
-Where did you find the data? Please include a link to the data source  
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+We found data about energy usage in each state from the Energy Information Administration’s website. This is the statistical branch of the Department of Energy. We were able to find data related to taxes from the government’s census website. All our datasets were available as CSVs.
+
+* [This is the link to the energy data](https://www.eia.gov/state/seds/sep_use/total/csv/use_all_phy.csv)
+This dataset has 8116 observations and 64 features
+
+* [This is the link to the tax collection data](https://www2.census.gov/programs-surveys/stc/datasets/historical/STC_Historical_2021.zip)
+This dataset has 3867 observations and 36 features
+
+The energy consumption dataset was compiled by the EIA of the Department of Energy. The EIA collects, analyzes, and disseminates independent and impartial energy information to promote sound policymaking, efficient markets, and public understanding of energy and its interaction with the economy and the environment. Moreover, by law, the EIA’s data, analyses, and forecasts are independent of approval by any other officer or employee of the U.S. government. This implies some degree of impartiality in the data. The EIA collects information from multiple energy power plants through two annual surveys. However, as each plant cannot be accessed every month, they use statistical imputation to estimate monthly operational characteristics of the energy industry.
+The tax collection dataset was compiled by the United States Census Bureau for the Annual Survey of State Government Tax Collections. This dataset was then made available on the United States Census Bureau website. This data was collected legally for the development of gross domestic product estimates, development of the national income and product accounts, and tax policy research. Most of the entries in the dataset are obtained through collection, some data may be estimated using coding operations and weighting. Specific information about the collection of this data was provided in the paper linked below:
+
+[Data Collection Information](https://www2.census.gov/programs-surveys/stc/technical-documentation/methodology/2021stcmethodology.pdf)
+
+One ethical question that was taken into consideration was whether our data was obtained legally through legitimate sources. Although information about income categories in a state was available, this information was not verified by government sources and so we decided not to use it. However, this ethical consideration also proved to be a limitation as we were not able to directly correlate income with energy usage. We had to first find the tax bracket that people belonged to get an ‘estimate’ of their household income. We plan to correlate this information with energy consumption data.
 
 ### Implications
 
-Assuming you answer your research questions, briefly describe the expected or possible implications for technologists, designers, and policymakers. (at least 150 words)
-
-### Limitations & Challenges
-What challenges or limitations might you need to address with your project idea more broadly? Briefly discuss. (at least 150 words)
+Assuming we are able to answer our research questions, there are several possible implications for technologists, designers, and policymakers. One possible implication might arise from the extent to which tax rates and energy consumption are tied together. Should they be strongly correlated - as we expect - there may be room for future research into incentives or controls, beyond money, that would limit/reduce energy consumption among the highest users. Should they be negatively correlated, there may be further incentive for designers and policymakers to produce more affordable solutions and alternatives for energy use. Another possible implication might arise from which taxes produce the greatest amount of revenue. These findings may provide insight for policymakers looking at where revenue is being generated and where it is being put to use, as well as how these taxes might be changed in order to more fairly reflect the needs and behaviors of different communities.
 
 ### Summary Information
 
