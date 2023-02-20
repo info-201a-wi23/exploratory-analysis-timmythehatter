@@ -143,7 +143,8 @@ The chart shows how dramatically energy consumption has grown in the U.S. since 
 
 ### Chart 2
 
-Include a chart
+``````{r, echo = FALSE, code = readLines("Chart-2.R")}
+``````
 
 Describe why you chose this chart and what information it reveals
 
