@@ -11,6 +11,6 @@ c2_data <- c2_data %>% filter(Name != "AK STATE GOVT (exhibit)")
 ggplot(data = c2_data) + 
   geom_col(aes(y = as.numeric(C105), x = Name, fill=Year))+ 
   theme(axis.text.x = element_text(size = 7, angle = 45, hjust = 1)) + 
-  labs(x = "State Govt", y = "Taxes every year") + 
+  labs(x = "State Govt", y = "Taxes every year", title = "Statewise Total Tax Collected Over 60 Years") + 
   scale_y_continuous(labels = label_number_si())
 
