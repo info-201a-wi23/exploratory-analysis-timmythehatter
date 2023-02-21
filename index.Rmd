@@ -157,3 +157,5 @@ Include a chart
 
 ```
 Describe why you chose this chart and what information it reveals
+
+The scatterplot shows the average taxes in millions of dollars per year for the time period of 1961-2021. The x-axis represents the year while the y-axis represents the average taxes. The scatterplot reveals an increasing trend in the average taxes over time, with a few years of decrease in between. There is a noticeable peak in the average taxes in the mid-2000s, followed by a drop during the recession in the late 2000s. The average taxes have been gradually increasing since the late 2000s and have reached a new peak in 2021. Overall, the scatterplot gives us an idea of how taxes have changed over time, and can be used to identify trends and patterns in the data.
