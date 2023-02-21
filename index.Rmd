@@ -143,10 +143,12 @@ The chart shows how dramatically energy consumption has grown in the U.S. since 
 
 ### Chart 2
 
-``````{r, echo = FALSE, code = readLines("Chart-2.R")}
+``````{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("Chart-2.R")}
 ``````
 
-Describe why you chose this chart and what information it reveals
+This chart visualizes all the taxes collected in each state year wise over 60 years.
+
+This chart shows how tax collection patterns vary across states in all sectors over 60 years. It does so by representing yearly total of the taxes collected in each state as a stacked bar plot, segregated by years. This data may be important in drawing correlations between the states where most energy is consumed versus states where the highest taxes have been collected. Moreover, this taxation data also hints at the spending and earning ability of the people in these states. Furthermore, the chart also shows that majority of the taxation has occurred over recent years, post 1990s. This is similar to the trend represented by the energy consumption graph.
 
 ### Chart 3
 
