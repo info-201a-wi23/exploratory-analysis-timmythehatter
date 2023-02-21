@@ -153,5 +153,7 @@ This chart shows how tax collection patterns vary across states in all sectors o
 ### Chart 3
 
 Include a chart
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("Chart-3.R")}
 
+```
 Describe why you chose this chart and what information it reveals
