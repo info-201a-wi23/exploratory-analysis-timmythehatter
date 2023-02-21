@@ -139,7 +139,7 @@ This table comes in two parts, the first is just the amount of taxes vs the amou
 ```
 This chart visualizes the changes in U.S. energy use per year, highlighting different periods of growth and decline over the past 60 years.
 
-The chart shows how dramatically energy consumption has grown in the U.S. since the 1960s - jumping from around 120 million physical units per year to 362 million per year. The chart also shows a large decline in consumption in the first-half of the 1980s, as well as smaller downturns in 1975, 2001, and 2008. These periods of decline can be attribtued to factors such as the 1970s oil crisis and economic recessions. Notably, the chart also indicates the beginning of another decline starting in 2019 and into 2020. This could be attributable to the COVID-19 pandemic and the host of economic policies implemented in response.
+The chart shows how dramatically energy consumption has grown in the U.S. since the 1960s - jumping from around 120 million physical units per year to 362 million per year. The chart also shows a large decline in consumption in the first-half of the 1980s, as well as smaller downturns in 1975, 2001, and 2008. These periods of decline can be attributed to factors such as the 1970s oil crisis and economic recessions. Notably, the chart also indicates the beginning of another decline starting in 2019 and into 2020. This could be attributable to the COVID-19 pandemic and the host of economic policies implemented in response.
 
 ### Chart 2
 
